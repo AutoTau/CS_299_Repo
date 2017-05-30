@@ -25,5 +25,12 @@ void destroy(node * &head);     //supplied
 //Checks if the requested data is a linear linked list
 bool find(node * head, int match);
 
+//Displays every other node in the list, starting at the first entry.
 int display_every_other(node * head);
+
+//Calculates the average of the numbers in the list, recurisivly.
+int getAverage(node * head, int num, int numofNum);
+
+//returns and displays the average of all entries in the list.
+int returnAverage(int num, int numofNum);
 

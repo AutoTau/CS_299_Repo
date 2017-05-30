@@ -5,15 +5,14 @@ using namespace std;
 //Does not check for multiple matches
 bool find(node* head, int match)
 {
-	cout << "Looking for : " << match << endl; 
 	if(head == NULL) 
 	{ 
-		cout << "no match" << endl;
+		cout << "no match for : " << match << endl;
 		return false;
 	}
 	else if(head->data == match)
 	{
-		cout << "match" << endl;
+		cout << "match for : " << match <<  endl;
 		return true;
 	}
 
@@ -37,14 +36,7 @@ int display_every_other(node * head)
 	}
 
 		cout << "entry : " << head->data << endl;
-/*	
-	if(head->next->next == NULL)
-	{
-		cout << "next->next is null" << endl;
-		node * current = head->next;
-		return 1;
-	}
-*/
+	
 	while(head->next != NULL)
 	{
 		node * current = head->next->next;	
@@ -52,4 +44,31 @@ int display_every_other(node * head)
 		return 1;
 	}
 return 1;
+}
+
+//Calculate average, dividing the sum of all entries by the number of entries.
+int returnAverage(int num, int numofNum)
+{
+	int average = (num/numofNum);
+	cout << "Average is : " << average << endl;
+	return average;
+
+}
+
+//Add up all the entries in the LLL.
+int getAverage(node * head, int num, int numofNum)
+{
+	
+	if(head == NULL)
+	{
+		cout << "End of list" << endl;
+		returnAverage(num, numofNum);	
+		return 0;
+	}
+		
+	num = num + head->data;
+	node * current = head->next;
+	numofNum++;
+	return getAverage(current,num, numofNum);
+
 }
